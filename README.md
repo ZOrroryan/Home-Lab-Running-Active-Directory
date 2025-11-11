@@ -80,13 +80,25 @@ Below is a screenshot showing the **successful domain login screen** after the s
 
 > *Screenshot:* The Windows Server 2019 login screen showing `OMARDOMAIN\Administrator` after the domain promotion.
 
-### 4. Network Services
-- Installed and configured **Routing and Remote Access Service (RRAS)** with **NAT** to allow clients on the internal network to reach the internet via the DC.
-- Installed **DHCP Server** and created a scope:
-  - IP Range: `172.16.0.100 – 172.16.0.200`
-  - Default Gateway: `172.16.0.1`
-  - DNS Server: `172.16.0.1`
-- Authorized the DHCP server and activated the scope.
+### 4. Organizational Unit and User Creation
+After confirming the domain setup was successful, the next step was to organize administrative accounts and create a user within Active Directory.
+
+- Opened **Active Directory Users and Computers (ADUC)** from the Server Manager.
+- Created a new **Organizational Unit (OU)** named `ADMINS` to store administrative accounts.
+- Within the `ADMINS` OU, created a new user account named **Omar Ryan**.
+- Configured the account with a secure password and default logon settings.
+- Verified the user’s entry under the correct OU in ADUC.
+
+#### 📸 Visual Reference
+Below is a screenshot showing the **ADMINS Organizational Unit** containing the **Omar Ryan** user account within Active Directory.
+
+<p align="center">
+  <img src="user.jpg" alt="Active Directory ADMINS OU and Omar Ryan User" width="600"/>
+</p>
+
+> *Screenshot:* The Active Directory Users and Computers console displaying the `ADMINS` OU with the `Omar Ryan` user account inside.
+
+
 
 ### 5. PowerShell Automation
 Created and executed a **PowerShell script** that automatically generated 1,000 Active Directory users.
