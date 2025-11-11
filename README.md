@@ -71,6 +71,15 @@ Below is a screenshot taken during the **Active Directory setup process**, showi
 
 > *Screenshot:* The domain naming screen during the Active Directory setup for `OmarDomain.com`.
 
+#### 📸 Visual Reference
+Below is a screenshot showing the **successful domain login screen** after the server reboot, confirming that the system is now part of the `OmarDomain.com` domain.
+
+<p align="center">
+  <img src="OMARDOMAIN.jpg" alt="Windows Server 2019 Domain Login Screen" width="600"/>
+</p>
+
+> *Screenshot:* The Windows Server 2019 login screen showing `OMARDOMAIN\Administrator` after the domain promotion.
+
 ### 4. Network Services
 - Installed and configured **Routing and Remote Access Service (RRAS)** with **NAT** to allow clients on the internal network to reach the internet via the DC.
 - Installed **DHCP Server** and created a scope:
