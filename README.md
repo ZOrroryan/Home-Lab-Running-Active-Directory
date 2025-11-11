@@ -93,7 +93,7 @@ After confirming the domain setup was successful, the next step was to organize 
 Below is a screenshot showing the **ADMINS Organizational Unit** containing the **Omar Ryan** user account within Active Directory.
 
 <p align="center">
-  <img src="user.jpg" alt="Active Directory ADMINS OU and Omar Ryan User" width="600"/>
+  <img src="users.jpg" alt="Active Directory ADMINS OU and Omar Ryan User" width="600"/>
 </p>
 
 > *Screenshot:* The Active Directory Users and Computers console displaying the `ADMINS` OU with the `Omar Ryan` user account inside.
