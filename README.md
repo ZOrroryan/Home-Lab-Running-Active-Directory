@@ -153,7 +153,47 @@ Below is a screenshot showing the **DHCP scope configuration window** where the 
 
 > *Screenshot:* The DHCP configuration window showing the IP range being set to `172.16.0.100–200` for the internal network.
 
+### 7. Bulk User Creation with PowerShell
+After configuring the domain, DHCP, and RRAS, the next objective was to automate the creation of multiple Active Directory user accounts using a PowerShell script.
 
+- Utilized a PowerShell automation script originally created by **Josh Madakor**, designed for educational and lab environments.  
+- Copied the automation folder onto the **Domain Controller (DC)**.  
+- Reviewed the folder contents, which included the PowerShell script and supporting files.  
+- Modified the script variables to:  
+  - Create **10,000** user accounts.  
+  - Set the password to `Password1`.  
+  - Add all accounts to the **_EMPLOYEES** Organizational Unit (OU).  
+- Opened **PowerShell ISE** as Administrator and executed the script to generate accounts automatically.
+
+#### 📸 Visual References
+
+**Folder containing the PowerShell automation files**
+
+<p align="center">
+  <img src="folder.jpg" alt="Folder Containing PowerShell Automation Files" width="600"/>
+</p>
+
+> *Screenshot:* The folder on the Domain Controller VM containing the PowerShell automation files downloaded from Josh Madakor’s GitHub repository.
+
+---
+
+**Running the PowerShell script**
+
+<p align="center">
+  <img src="powershell.jpg" alt="PowerShell Script Running to Create AD Users" width="600"/>
+</p>
+
+> *Screenshot:* PowerShell ISE running Josh Madakor’s automation script, actively creating user accounts in bulk within Active Directory.
+
+---
+
+**Active Directory view of generated users**
+
+<p align="center">
+  <img src="userss.jpg" alt="Active Directory Users Created by Script" width="600"/>
+</p>
+
+> *Screenshot:* Active Directory Users and Computers console showing the newly created accounts within the `_EMPLOYEES` Organizational Unit.
 
 ---
 
