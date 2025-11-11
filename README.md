@@ -66,7 +66,7 @@ Below is a screenshot of the **network configuration** inside the Domain Control
 Below is a screenshot taken during the **Active Directory setup process**, showing where the domain name was specified while creating the new forest.
 
 <p align="center">
-  <img src="images/ad_domain_creation.png" alt="Active Directory Domain Naming Setup" width="600"/>
+  <img src="Activedirectorydomaincreation.jpg" alt="Active Directory Domain Naming Setup" width="600"/>
 </p>
 
 > *Screenshot:* The domain naming screen during the Active Directory setup for `OmarDomain.com`.
