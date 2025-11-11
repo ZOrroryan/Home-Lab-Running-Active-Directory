@@ -31,7 +31,7 @@ This lab was designed to help develop practical experience with **Active Directo
 - The **client VM** (Windows) will be created and configured later in the project.
 
 #### 📸 Visual Reference
-Below is a screenshot of the **VirtualBox environment** showing the Domain Controller virtual machine prior to startup — serving as a visual reference for the lab setup.
+Below is a screenshot of the **VirtualBox environment** showing the Domain Controller virtual machine prior to startup; serving as a visual reference for the lab setup.
 
 <p align="center">
   <img src="vbox_vm_list.png" alt="VirtualBox VM List Showing Domain Controller" width="600"/>
