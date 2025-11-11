@@ -270,8 +270,3 @@ By completing this project:
 
 ---
 
-## 🪪 Author
-**Omar — Cybersecurity Analyst | CompTIA CySA+ | Splunk Certified**
-
----
-
