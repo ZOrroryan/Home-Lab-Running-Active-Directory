@@ -23,21 +23,21 @@ This lab was designed to help develop practical experience with **Active Directo
 
 ### 1. Virtual Machine Setup 
 - Installed **Oracle VirtualBox** and the **Extension Pack**.
-- Created two VMs:
-  - **Domain Controller (DC)**
-  - **Windows 10 Client**
+- Created one virtual machine:
+  - **Domain Controller (DC)** running **Windows Server 2019**.
 - Assigned two network adapters to the DC:
   - **NAT** for external internet access.
   - **Internal Network** for private connectivity.
+- The **client VM** (Windows) will be created and configured later in the project.
 
 #### 📸 Visual Reference
-Below are screenshots of the **VirtualBox environment** showing both virtual machines prior to startup — serving as a visual reference for the lab setup.
+Below is a screenshot of the **VirtualBox environment** showing the Domain Controller virtual machine prior to startup — serving as a visual reference for the lab setup.
 
 <p align="center">
-  <img src="vbox_vm_list.png" alt="VirtualBox VM List" width="600"/>
+  <img src="vbox_vm_list.png" alt="VirtualBox VM List Showing Domain Controller" width="600"/>
 </p>
 
-> *Screenshot:* The VirtualBox Manager displaying the two configured VMs (Server 2019 and Windows 10 Client) before being powered on.
+> *Screenshot:* The VirtualBox Manager displaying the created Domain Controller VM before being powered on.
 
 ### 2. Windows Server 2019 Configuration
 - Installed **Server 2019** on the Domain Controller VM.
@@ -87,7 +87,8 @@ After confirming the domain setup was successful, the next step was to organize 
 - Created a new **Organizational Unit (OU)** named `ADMINS` to store administrative accounts.
 - Within the `ADMINS` OU, created a new user account named **Omar Ryan**.
 - Configured the account with a secure password and default logon settings.
-- Verified the user’s entry under the correct OU in ADUC.
+- Added the **Omar Ryan** account to the **Domain Admins** security group to grant administrative privileges.
+- Verified the user’s entry and group membership within the `ADMINS` OU in ADUC.
 
 #### 📸 Visual Reference
 Below is a screenshot showing the **ADMINS Organizational Unit** containing the **Omar Ryan** user account within Active Directory.
@@ -98,24 +99,61 @@ Below is a screenshot showing the **ADMINS Organizational Unit** containing the 
 
 > *Screenshot:* The Active Directory Users and Computers console displaying the `ADMINS` OU with the `Omar Ryan` user account inside.
 
+---
+
+#### 📸 Login Verification
+After creating the account, logged into the server using the new **domain admin credentials** to verify successful authentication.
+
+<p align="center">
+  <img src="user2.jpg" alt="Domain Login Using A-Oryan Account" width="600"/>
+</p>
+
+> *Screenshot:* Successful login to the domain as the `A-Oryan` account, confirming administrative access.
+
+### 5. Routing and Remote Access (RRAS) Setup
+With the domain and administrative account configured, the next objective was to enable **network routing** between the internal and external networks using **RRAS (Routing and Remote Access Service)**.
+
+- Opened **Server Manager** → **Add Roles and Features**.
+- Installed the **Remote Access** role and selected **Routing** under role services.
+- After installation, opened the **Routing and Remote Access** console.
+- Configured the server for **NAT (Network Address Translation)** routing:
+  - Chose the external network adapter connected to the internet (NAT adapter).
+  - Selected the internal adapter connected to the private network (`172.16.0.0/24`).
+- Enabled **LAN routing** to allow traffic between the client and external network.
+
+#### 📸 Visual Reference
+Below is a screenshot showing the **Routing and Remote Access Server Setup Wizard** during configuration.
+
+<p align="center">
+  <img src="rmac.jpg" alt="Routing and Remote Access Setup Wizard" width="600"/>
+</p>
+
+> *Screenshot:* The Routing and Remote Access Server Setup Wizard displaying configuration options for NAT routing.
+
+### 6. DHCP Configuration
+After setting up RRAS for network routing, the next step was to configure **DHCP (Dynamic Host Configuration Protocol)** on the Domain Controller to automatically assign IP addresses to devices on the internal network.
+
+- Opened **Server Manager** → **Add Roles and Features**.
+- Installed the **DHCP Server** role and completed the post-installation configuration.
+- Authorized the DHCP server in **Active Directory** to allow it to issue IP leases.
+- Created a new **DHCP scope** with the following settings:
+  - **Name:** 172.16.0.100–200
+  - **IP Range:** `172.16.0.100` – `172.16.0.200`
+  - **Subnet Mask:** `255.255.255.0`
+  - **Default Gateway:** `172.16.0.1`
+  - **DNS Server:** `172.16.0.1`
+- Activated the scope and verified that the DHCP service was running.
+
+#### 📸 Visual Reference
+Below is a screenshot showing the **DHCP scope configuration window** where the IP address range was defined.
+
+<p align="center">
+  <img src="ip.jpg" alt="DHCP Scope Range Configuration" width="600"/>
+</p>
+
+> *Screenshot:* The DHCP configuration window showing the IP range being set to `172.16.0.100–200` for the internal network.
 
 
-### 5. PowerShell Automation
-Created and executed a **PowerShell script** that automatically generated 1,000 Active Directory users.
-
-#### Script Summary
-- Reads names from an external `.txt` file.
-- Creates an `_Users` OU in Active Directory.
-- Adds users with a default password (`Password1`).
-- Ensures consistency and simulates a realistic enterprise directory.
-
-### 6. Windows 10 Client Setup
-- Installed **Windows 10 Pro** on the second VM.
-- Connected the VM to the **Internal Network**.
-- Verified automatic IP assignment from DHCP.
-- Confirmed network connectivity and internet access via NAT.
-- Joined the Windows 10 machine to the `mydomain.com` domain.
-- Logged into the system using a domain user account to verify domain authentication.
 
 ---
 
