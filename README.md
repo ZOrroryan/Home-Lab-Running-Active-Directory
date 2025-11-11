@@ -21,7 +21,7 @@ This lab was designed to help develop practical experience with **Active Directo
 
 ## 🧩 Configuration Steps
 
-### 1. Virtual Machine Setup
+### 1. Virtual Machine Setup 
 - Installed **Oracle VirtualBox** and the **Extension Pack**.
 - Created two VMs:
   - **Domain Controller (DC)**
@@ -29,6 +29,15 @@ This lab was designed to help develop practical experience with **Active Directo
 - Assigned two network adapters to the DC:
   - **NAT** for external internet access.
   - **Internal Network** for private connectivity.
+
+#### 📸 Visual Reference
+Below are screenshots of the **VirtualBox environment** showing both virtual machines prior to startup — serving as a visual reference for the lab setup.
+
+<p align="center">
+  <img src="images/vbox_vm_list.png" alt="VirtualBox VM List" width="600"/>
+</p>
+
+> *Screenshot:* The VirtualBox Manager displaying the two configured VMs (Server 2019 and Windows 10 Client) before being powered on.
 
 ### 2. Windows Server 2019 Configuration
 - Installed **Server 2019** on the Domain Controller VM.
@@ -38,11 +47,29 @@ This lab was designed to help develop practical experience with **Active Directo
   - Subnet Mask: `255.255.255.0`
   - DNS: `127.0.0.1` (loopback)
 
+#### 📸 Visual Reference
+Below is a screenshot of the **network configuration** inside the Domain Controller VM, showing the static IP setup used for the internal network.
+
+<p align="center">
+  <img src="images/dc_network_config.png" alt="Windows Server 2019 Network Configuration" width="600"/>
+</p>
+
+> *Screenshot:* The Windows Server 2019 network configuration displaying the static IP settings for the internal NIC.
+
 ### 3. Active Directory Setup
 - Installed the **Active Directory Domain Services (AD DS)** role.
-- Created a new forest and domain: `mydomain.com`.
+- Created a new forest and domain: `OmarDomain.com`.
 - Created a dedicated **Domain Admin account** under an OU named `MyAdmins`.
 - Granted the account **Domain Admin** privileges.
+
+#### 📸 Visual Reference
+Below is a screenshot taken during the **Active Directory setup process**, showing where the domain name was specified while creating the new forest.
+
+<p align="center">
+  <img src="images/ad_domain_creation.png" alt="Active Directory Domain Naming Setup" width="600"/>
+</p>
+
+> *Screenshot:* The domain naming screen during the Active Directory setup for `OmarDomain.com`.
 
 ### 4. Network Services
 - Installed and configured **Routing and Remote Access Service (RRAS)** with **NAT** to allow clients on the internal network to reach the internet via the DC.
