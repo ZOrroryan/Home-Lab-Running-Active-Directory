@@ -34,7 +34,7 @@ This lab was designed to help develop practical experience with **Active Directo
 Below are screenshots of the **VirtualBox environment** showing both virtual machines prior to startup — serving as a visual reference for the lab setup.
 
 <p align="center">
-  <img src="images/vbox_vm_list.png" alt="VirtualBox VM List" width="600"/>
+  <img src="vbox_vm_list.png" alt="VirtualBox VM List" width="600"/>
 </p>
 
 > *Screenshot:* The VirtualBox Manager displaying the two configured VMs (Server 2019 and Windows 10 Client) before being powered on.
