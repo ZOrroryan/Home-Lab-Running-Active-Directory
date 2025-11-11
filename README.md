@@ -51,7 +51,7 @@ Below are screenshots of the **VirtualBox environment** showing both virtual mac
 Below is a screenshot of the **network configuration** inside the Domain Controller VM, showing the static IP setup used for the internal network.
 
 <p align="center">
-  <img src="images/dc_network_config.png" alt="Windows Server 2019 Network Configuration" width="600"/>
+  <img src="Internalnetworksetup.jpg" alt="Windows Server 2019 Network Configuration" width="600"/>
 </p>
 
 > *Screenshot:* The Windows Server 2019 network configuration displaying the static IP settings for the internal NIC.
